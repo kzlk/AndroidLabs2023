@@ -1,0 +1,19 @@
+<!-- res/drawable/bordered_card_view.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color for the CardView -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+            <corners android:radius="8dp" /> <!-- Adjust the radius as needed for rounded corners -->
+        </shape>
+    </item>
+    <!-- Border (stroke) for the CardView -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="2dp"
+            android:color="#FF000000" /> <!-- Border color -->
+            <corners android:radius="8dp" /> <!-- Adjust the radius to match the background radius -->
+        </shape>
+    </item>
+</layer-list>

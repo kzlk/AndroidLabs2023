@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/fileNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введіть назву файлу" />
+
+
+    <EditText
+        android:id="@+id/selectedFolderTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Введіть шлях куда зберегти(опціонально - по замовчуванню дефолтний)" />
+
+    <Button
+        android:id="@+id/deleteFileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Видалити файл" />
+
+    <Button
+        android:id="@+id/readFileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Прочитати із файла" />
+
+    <Button
+        android:id="@+id/saveFileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Записати у файл" />
+
+    <TextView
+        android:id="@+id/infoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Записати/прочитати текст"
+        />
+
+    <EditText
+        android:id="@+id/readTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>

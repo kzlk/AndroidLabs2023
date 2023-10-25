@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">lab2</string>
+    <string name="next">Перейти на інше вікно</string>
+    <string name="exit">Вихід</string>
+</resources>

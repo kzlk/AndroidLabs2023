@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Add EditText fields for subject name, scope, teacher, schedule, success rate -->
+    <EditText
+        android:id="@+id/editTextSubjectName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Subject Name" />
+
+    <EditText
+        android:id="@+id/editTextScope"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Scope" />
+
+    <EditText
+        android:id="@+id/editTextTeacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Teacher" />
+
+    <EditText
+        android:id="@+id/editTextSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Schedule" />
+
+    <EditText
+        android:id="@+id/editTextSuccessRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Success Rate" />
+
+    <!-- Add a button to save the data -->
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Зберегти" />
+
+</LinearLayout>

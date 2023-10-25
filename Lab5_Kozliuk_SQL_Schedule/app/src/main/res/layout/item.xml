@@ -1,0 +1,68 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+
+
+    >
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="2dp"
+    android:background="@drawable/round"
+
+    >
+
+    <TextView
+        android:id="@+id/textViewSubjectName"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subject Name"
+        android:layout_margin="2dp"/>
+
+    <TextView
+        android:id="@+id/textViewScope"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray"
+        android:text="Scope" android:layout_marginLeft="4dp" />
+
+    <TextView
+        android:id="@+id/textViewTeacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teacher"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray" android:layout_marginLeft="4dp"/>
+    <TextView
+        android:id="@+id/textViewSuccessRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SuccessRate"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray" android:layout_marginLeft="4dp"/>
+    <TextView
+        android:id="@+id/textViewSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schedule"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray" android:layout_marginLeft="4dp"
+        android:layout_marginBottom="4dp"/>
+
+
+</LinearLayout>
+
+    </androidx.cardview.widget.CardView>
