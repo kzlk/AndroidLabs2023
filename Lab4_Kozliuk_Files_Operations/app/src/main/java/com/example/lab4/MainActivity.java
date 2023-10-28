@@ -50,12 +50,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        EditText editText = findViewById(R.id.selectedFolderTextView);
+        editText.setText("/data/user/0/com.example.lab4/files/");
 
     }
 
     public void saveText(){
 
         FileOutputStream fos = null;
+        File myFile = null;
 
         try {
 
@@ -63,15 +66,18 @@ public class MainActivity extends AppCompatActivity {
             EditText file_name = findViewById(R.id.fileNameEditText);
 
             if (file_name.getText().toString().isEmpty()) {
-                Toast.makeText(MainActivity.this, "Будь ласка введуть назву файла", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Будь ласка введіть назву файла", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             EditText textBox = findViewById(R.id.readTextView);
             String text = textBox.getText().toString();
 
+
+            myFile = new File(file_name.getText().toString());
             fos = openFileOutput(file_name.getText().toString(), MODE_PRIVATE);
             fos.write(text.getBytes());
+
             Toast.makeText(this, "Файл збережено", Toast.LENGTH_SHORT).show();
             textBox.setText("");
         }
