@@ -44,10 +44,6 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     protected LocationManager locationManager;
     PolylineOptions polylineOptions = new PolylineOptions();
+
+    Spinner spinner;
+
+    int position_spinner;
 
     LatLng myPos;
 
@@ -83,11 +83,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         locations.put("Третій корпус", new mPoint(49.83653599231934, 24.01360437589593));
         locations.put("Четвертий корпус", new mPoint(49.836423507581806, 24.011372301879856));
         locations.put("П'ятий корпус", new mPoint(49.83499578639943, 24.00810262479517));
-        locations.put("Шостий корпус", new mPoint(49.842233, 24.027512));
-        locations.put("Сьомий корпус", new mPoint(49.842233, 24.027512));
-        locations.put("Восьмий корпус", new mPoint(49.842233, 24.027512));
-        locations.put("Дев'ятий корпус", new mPoint(49.842233, 24.027512));
-        locations.put("Десятий корпус", new mPoint(49.842233, 24.027512));
+        locations.put("Шостий корпус", new mPoint(49.83522227115248, 24.006496308753526));
+        locations.put("Сьомий корпус", new mPoint(49.83466293290917, 24.009693295262277));
+        locations.put("Восьмий корпус", new mPoint(49.837843234646435, 24.01253141246118));
+        locations.put("Дев'ятий корпус", new mPoint(49.836571707842964, 24.01433568177108));
+        locations.put("Десятий корпус", new mPoint(49.8365301891598, 24.01510815798094));
     }
 
     @Override
@@ -99,8 +99,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        //supportMapFragment.getMapAsync(this);
-       // locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         Dexter.withContext(getApplicationContext()).withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(new PermissionListener() {
@@ -125,20 +123,22 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinner = findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
 
-
+        adapter.notifyDataSetChanged();
+        spinner.setSelection(5);
+        position_spinner = 5;
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
+                position_spinner = position;
                 mPoint mPoint = locations.get(selectedItem);
                 assert mPoint != null;
                 setloc(mPoint.first, mPoint.second);
-
             }
 
             @Override
@@ -147,29 +147,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-
-    }
-
-
-    public void corp5(View view) {
-        setloc(49.835061998816045, 24.008043206995957);
-    }
-    public void corp1(View view) {
-        setloc(49.835694727236536, 24.014462192500172);
-    }
-    public void corpm(View view) {
-        setloc(49.83532849045392, 24.010624565131653);
     }
 
     public void setloc(double lat, double lng) {
         if(myPos != null) {
-            // LatLng myPos = new LatLng(49.82482513198285, 24.01186144571698);
             LatLng corpPos = new LatLng(lat, lng);
             float[] results = new float[1];
             Location.distanceBetween(myPos.latitude, myPos.longitude,
                     corpPos.latitude, corpPos.longitude, results);
             mMap.clear();
-            mMap.addMarker(new MarkerOptions().position(corpPos).title("Корпус, відстань " + results[0] + "  m"));
+            mMap.addMarker(new MarkerOptions().position(corpPos).title(spinner.getAdapter().getItem(position_spinner) + ", відстань " + results[0] + "  m"));
             mMap.addMarker(new MarkerOptions().position(myPos).title("Я"));
             Polyline line = mMap.addPolyline(new PolylineOptions().width(5).color(Color.RED));
             mMap.addPolyline(polylineOptions);
