@@ -1,4 +1,6 @@
 package com.example.lab2;
+import static java.lang.System.exit;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +24,7 @@ public class ActivityTwo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+
             }
         });
         textView2 = findViewById(R.id.textView2);
